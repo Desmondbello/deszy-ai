@@ -1,25 +1,52 @@
+import { FaRobot, FaFilePdf, FaGraduationCap } from "react-icons/fa";
+
 export default function Features() {
+  const features = [
+    {
+      icon: <FaRobot className="text-4xl text-blue-400" />,
+      title: "AI Chat",
+      description:
+        "Get instant answers, brainstorm ideas, and solve problems with AI.",
+    },
+    {
+      icon: <FaFilePdf className="text-4xl text-red-400" />,
+      title: "PDF Tools",
+      description:
+        "Summarize, merge, split, and analyze documents in seconds.",
+    },
+    {
+      icon: <FaGraduationCap className="text-4xl text-green-400" />,
+      title: "Study Assistant",
+      description:
+        "Generate notes, quizzes, explanations, and exam preparation material.",
+    },
+  ];
+
   return (
-    <section className="grid gap-8 px-8 pb-20 md:grid-cols-3 bg-slate-950">
-      <div className="rounded-2xl bg-slate-900 p-8 hover:bg-slate-800 transition">
-        <h2 className="text-2xl font-bold">🤖 AI Chat</h2>
-        <p className="mt-3 text-gray-400">
-          Chat with a powerful AI assistant for work, school, and everyday tasks.
-        </p>
-      </div>
+    <section className="bg-slate-950 px-6 py-20">
+      <div className="mx-auto max-w-6xl">
+        <h2 className="mb-12 text-center text-4xl font-bold">
+          Powerful Features
+        </h2>
 
-      <div className="rounded-2xl bg-slate-900 p-8 hover:bg-slate-800 transition">
-        <h2 className="text-2xl font-bold">📄 PDF Tools</h2>
-        <p className="mt-3 text-gray-400">
-          Merge, split, summarize, and convert PDF documents quickly.
-        </p>
-      </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-2 hover:border-blue-500"
+            >
+              {feature.icon}
 
-      <div className="rounded-2xl bg-slate-900 p-8 hover:bg-slate-800 transition">
-        <h2 className="text-2xl font-bold">🎓 Study Assistant</h2>
-        <p className="mt-3 text-gray-400">
-          Generate quizzes, summaries, explanations, and study notes.
-        </p>
+              <h3 className="mt-6 text-2xl font-bold">
+                {feature.title}
+              </h3>
+
+              <p className="mt-4 text-gray-400">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

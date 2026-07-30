@@ -1,20 +1,69 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { FiMenu } from "react-icons/fi";
+
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-8 py-6 border-b border-slate-800 bg-slate-950">
-      <h1 className="text-2xl font-bold text-blue-500">
-        Deszy AI
-      </h1>
+    <motion.nav
+      initial={{ y: -60, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className="sticky top-0 z-50 border-b border-slate-800/50 bg-slate-950/80 backdrop-blur-md"
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <div className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-cyan-400 font-bold text-white">
+            D
+          </div>
 
-      <div className="flex items-center gap-6">
-        <a href="#" className="hover:text-blue-400">Home</a>
-        <a href="#" className="hover:text-blue-400">Features</a>
-        <a href="#" className="hover:text-blue-400">Pricing</a>
-        <a href="#" className="hover:text-blue-400">Contact</a>
+          <div>
+            <h1 className="text-xl font-bold text-white">
+              Deszy AI
+            </h1>
 
-        <button className="rounded-lg bg-blue-600 px-4 py-2 hover:bg-blue-700">
-          Login
+            <p className="text-xs text-gray-400">
+              Intelligence for Everyone
+            </p>
+          </div>
+        </div>
+
+        {/* Desktop Menu */}
+        <div className="hidden items-center gap-8 md:flex">
+          <a href="#" className="transition hover:text-blue-400">
+            Home
+          </a>
+
+          <a href="#" className="transition hover:text-blue-400">
+            Features
+          </a>
+
+          <a href="#" className="transition hover:text-blue-400">
+            Pricing
+          </a>
+
+          <a href="#" className="transition hover:text-blue-400">
+            Contact
+          </a>
+        </div>
+
+        {/* Buttons */}
+        <div className="hidden items-center gap-3 md:flex">
+          <button className="rounded-lg border border-slate-700 px-5 py-2 hover:bg-slate-800">
+            Login
+          </button>
+
+          <button className="rounded-lg bg-blue-600 px-5 py-2 font-semibold transition hover:scale-105 hover:bg-blue-700">
+            Sign Up
+          </button>
+        </div>
+
+        {/* Mobile Menu Icon */}
+        <button className="text-2xl md:hidden">
+          <FiMenu />
         </button>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

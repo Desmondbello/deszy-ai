@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FiMenu } from "react-icons/fi";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -50,14 +51,20 @@ export default function Navbar() {
 
         {/* Buttons */}
         <div className="hidden items-center gap-3 md:flex">
-          <button className="rounded-lg border border-slate-700 px-5 py-2 hover:bg-slate-800">
+          
+        <Link href="/login">
+       <button className="rounded-lg border border-slate-700 px-5 py-2 hover:bg-slate-800">
             Login
-          </button>
-
-          <button className="rounded-lg bg-blue-600 px-5 py-2 font-semibold transition hover:scale-105 hover:bg-blue-700">
-            Sign Up
-          </button>
-        </div>
+      </button>
+      </Link>
+          
+      <Link href="/signup">
+     <button className="rounded-lg bg-blue-600 px-5 py-2 font-semibold transition hover:scale-105 hover:bg-blue-700">
+         Sign Up
+     </button>
+       </Link>
+          
+ </div>
 
         {/* Mobile Menu Icon */}
         <button className="text-2xl md:hidden">

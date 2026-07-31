@@ -13,9 +13,13 @@ export async function POST(request: Request) {
       contents: message,
     });
 
-    return Response.json({
-      reply: response.text,
-    });
+
+    console.log(response);
+
+return Response.json({
+  reply: response.text,
+  });
+
   } catch (error) {
     console.error(error);
 

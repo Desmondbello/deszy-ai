@@ -1,7 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 
 export async function POST(request: Request) {
-  try {
+ console.log("POST function started");
+
+    try {
     const ai = new GoogleGenAI({
       apiKey: process.env.GEMINI_API_KEY!,
     });
@@ -16,9 +18,12 @@ export async function POST(request: Request) {
 
     console.log(response);
 
+console.log("Gemini response:", JSON.stringify(response, null, 2));
+console.log("Response text:", response.text);
+
 return Response.json({
-  reply: response.text,
-  });
+  reply: response.text ?? "No text returned",
+});
 
   } catch (error) {
     console.error(error);

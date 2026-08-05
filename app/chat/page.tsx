@@ -1,5 +1,5 @@
 "use client";
-
+import Sidebar from "@/components/Sidebar";
 import { useState } from "react";
 
 export default function ChatPage() {
@@ -48,7 +48,10 @@ export default function ChatPage() {
 }
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white p-8">
+  <div className="flex min-h-screen bg-slate-950 text-white">
+    <Sidebar />
+
+    <main className="flex-1 p-8">
 
       <h1 className="text-4xl font-bold">
         🤖 Deszy AI Chat
@@ -83,8 +86,7 @@ export default function ChatPage() {
           Send
         </button>
 
-      </div>
-
     </main>
-  );
+  </div>
+);
 }
